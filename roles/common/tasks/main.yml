@@ -1,4 +1,8 @@
 ---
+- name: Debug ansible_os_family
+  debug:
+    msg: "The OS Family is {{ ansible_os_family }}"
+
 - name: "Update apt cache if running on Debian system"
   apt:
     update_cache: yes
