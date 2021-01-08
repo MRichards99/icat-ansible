@@ -133,7 +133,7 @@
     path: /home/{{ payara_user }}/{{ payara_directory }}/glassfish/config/asenv.conf
     line: 'AS_JAVA="/usr/lib/jvm/java-1.8.0-openjdk-amd64"'
     regexp: '^AS_JAVA="\/usr\/lib\/jvm\/java-1\.8\.0-openjdk-amd64"$'
-  when: ansible_os_family == 'Debian' and ansible_distribution_major_version == '16'
+  when: (ansible_os_family == 'Debian' or ansible_os_family == 'Alpine') and ansible_distribution_major_version == '16'
 
 - name: 'Make sure we are using the correct java version for payara for Red Hat systems (EL 7)'
   lineinfile:
