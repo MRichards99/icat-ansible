@@ -9,6 +9,7 @@
   package: name={{ item }} state=present use=apt
   with_items: "{{ mariadb_pkgs }}"
   become: true
+  when: ansible_os_family != 'Alpine'
 
 - name: "Configure default storage engine"
   copy:
