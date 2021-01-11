@@ -8,6 +8,7 @@
 - name: "Install mariadb packages"
   package: name={{ item }} state=present use=apt
   with_items: "{{ mariadb_pkgs }}"
+  become: true
 
 - name: "Configure default storage engine"
   copy:
