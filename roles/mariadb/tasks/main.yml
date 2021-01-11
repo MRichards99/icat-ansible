@@ -6,7 +6,7 @@
   when: ansible_os_family == 'Debian' or ansible_os_family == 'Alpine'
 
 - name: "Install mariadb packages"
-  package: name={{ item }} state=latest use=apt
+  package: name={{ item }} state=present use=apt
   with_items: "{{ mariadb_pkgs }}"
 
 - name: "Configure default storage engine"
