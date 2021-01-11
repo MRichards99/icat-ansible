@@ -5,9 +5,15 @@
 - include_vars: vars/debian.yml
   when: ansible_os_family == 'Debian' or ansible_os_family == 'Alpine'
 
+#- name: "Install mariadb packages"
+  #package: name={{ item }} state=latest
+  #with_items: "{{ mariadb_pkgs }}"
+
 - name: "Install mariadb packages"
-  package: name={{ item }} state=latest
-  with_items: "{{ mariadb_pkgs }}"
+  apk:
+    name: {{ item }}
+    state: latest
+    with_items: "{{ mariadb_pkgs }}"
 
 - name: "Configure default storage engine"
   copy:
