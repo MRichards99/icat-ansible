@@ -11,9 +11,8 @@
 
 - name: "Install mariadb packages"
   apk:
-    name: "{{ item }}"
+    name: mariadb-server
     state: latest
-  with_items: "{{ mariadb_pkgs }}"
 
 - name: "Configure default storage engine"
   copy:
