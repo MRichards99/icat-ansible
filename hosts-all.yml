@@ -6,7 +6,7 @@
   roles:
     - role: common
     - role: java
-    - role: mariadb
+    #- role: mariadb
     - role: icatdb
     - role: payara
     - role: authn-simple
