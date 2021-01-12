@@ -3,13 +3,15 @@
   when: ansible_os_family == 'RedHat'
 
 - include_vars: vars/debian.yml
-  when: ansible_os_family == 'Debian' or ansible_os_family == 'Alpine'
+  when: ansible_os_family == 'Debian'
+
+- include_vars: vars/alpine.yml
+  when: ansible_os_family == 'Alpine'
 
 - name: "Install mariadb packages"
-  package: name={{ item }} state=present use=apt
+  package: name={{ item }} state=present
   with_items: "{{ mariadb_pkgs }}"
   become: true
-  when: ansible_os_family != 'Alpine'
 
 - name: "Configure default storage engine"
   copy:
