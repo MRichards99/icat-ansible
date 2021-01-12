@@ -5,4 +5,3 @@ mariadb_pkgs:
   - mariadb-server-utils
   - mariadb-client
   - mariadb-connector-c
-  - mariadb-connector-odbc
