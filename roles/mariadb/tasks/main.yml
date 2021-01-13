@@ -13,15 +13,16 @@
   with_items: "{{ mariadb_pkgs }}"
   become: true
 
-#- name: "Configure default storage engine"
-  #copy:
-    #src: files/storage-engine.cnf
-    #dest: "{{ mariadb_config_dir }}/storage-engine.cnf"
-    #owner: root
-    #group: root
-    #mode: 0644
-  #notify:
-    #- "mariadb-handler"
+- name: "Configure default storage engine"
+  copy:
+    src: files/storage-engine.cnf
+    dest: "{{ mariadb_config_dir }}/storage-engine.cnf"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - "mariadb-handler"
+  become: true
 
 #- name: "Configure default character set"
   #copy:
